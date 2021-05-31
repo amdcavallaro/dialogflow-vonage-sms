@@ -1,0 +1,23 @@
+{
+  "name": "dialogflowFirebaseFulfillment",
+  "description": "Dialogflow agents using Cloud Functions for Firebase and the Vonage SMS API",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache Version 2.0",
+  "author": "Google Inc.",
+  "engines": {
+    "node": "10"
+  },
+  "scripts": {
+    "start": "firebase serve --only functions:dialogflowFirebaseFulfillment",
+    "deploy": "firebase deploy --only functions:dialogflowFirebaseFulfillment"
+  },
+  "dependencies": {
+    "@vonage/server-sdk": "^2.10.8",
+    "actions-on-google": "^2.2.0",
+    "firebase-admin": "^5.13.1",
+    "firebase-functions": "^2.0.2",
+    "dialogflow": "^0.6.0",
+    "dialogflow-fulfillment": "^0.5.0"
+  }
+}
