@@ -8,12 +8,13 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const Vonage = require('@vonage/server-sdk');
 
+// Vonage SMS API Reference here: https://developer.nexmo.com/messaging/sms/overview
 const vonage = new Vonage({
     apiKey: "<YOUR_VONAGE_API_KEY>",
     apiSecret: "<YOUR_VONAGE_API_SECRET>"
 });
 
-const from = "Vonage APIs";
+const from = "<YOUR_BRAND>";
 const to = "<YOUR_PHONE_NUMBER>";
 
 admin.initializeApp();
@@ -25,7 +26,7 @@ const app = dialogflow({ debug: true });
 // The intent collects the parameters time and date.
 app.intent('Book a meeting', async (conv, { time, date }) => {
     const result = await new Promise((resolve, reject) => {
-        vonage.message.sendSms(from, to, `Meeting booked at ${time} on date:${date}`, (err, responseData) => {
+        vonage.message.sendSms(from, to, `Meeting booked at ${time} on date: ${date}`, (err, responseData) => {
             if (err) {
                 return reject(new Error(err));
             } else {
